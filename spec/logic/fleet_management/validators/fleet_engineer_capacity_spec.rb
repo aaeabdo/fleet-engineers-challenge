@@ -7,7 +7,7 @@ RSpec.describe Logic::FleetManagement::Validators::FleetEngineerCapacity do
   context 'invalid' do
     let(:error_message) do
       'Fleet engineer capacity must be an integer'\
-      "between #{described_class::MIN_NO_OF_SCOOTERS} and #{described_class::MAX_NO_OF_SCOOTERS}."
+      " between #{described_class::MIN_NO_OF_SCOOTERS} and #{described_class::MAX_NO_OF_SCOOTERS}."
     end
 
     shared_examples_for 'invalid' do

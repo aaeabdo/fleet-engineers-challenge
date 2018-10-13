@@ -14,7 +14,7 @@ module Logic
              !(MIN_NO_OF_SCOOTERS..MAX_NO_OF_SCOOTERS).cover?(fleet_manager_capacity)
 
             raise InvalidFleetManagerCapacityError, 'Fleet manager capacity must be an integer'\
-             "between #{MIN_NO_OF_SCOOTERS} and #{MAX_NO_OF_SCOOTERS}."
+             " between #{MIN_NO_OF_SCOOTERS} and #{MAX_NO_OF_SCOOTERS}."
           end
 
           fleet_manager_capacity

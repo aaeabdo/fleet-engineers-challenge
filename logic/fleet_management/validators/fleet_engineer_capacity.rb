@@ -14,7 +14,7 @@ module Logic
              !(MIN_NO_OF_SCOOTERS..MAX_NO_OF_SCOOTERS).cover?(fleet_engineer_capacity)
 
             raise InvalidFleetEngineerCapacityError, 'Fleet engineer capacity must be an integer'\
-             "between #{MIN_NO_OF_SCOOTERS} and #{MAX_NO_OF_SCOOTERS}."
+             " between #{MIN_NO_OF_SCOOTERS} and #{MAX_NO_OF_SCOOTERS}."
           end
 
           fleet_engineer_capacity

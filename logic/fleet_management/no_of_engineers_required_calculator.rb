@@ -36,9 +36,9 @@ module Logic
             manager_engineer_ratio.ceil > max_manager_engineer_coverage
 
             max_manager_engineer_coverage = manager_engineer_ratio.ceil
-          elsif scooters > fleet_manager_capacity
-            no_engineers_required_remainder = 0 &&
-            no_engineers_required_remainder > manager_engineer_ratio_remainder &&
+          elsif scooters > fleet_manager_capacity &&
+            (no_engineers_required_remainder == 0 ||
+              no_engineers_required_remainder > manager_engineer_ratio_remainder) &&
             manager_engineer_ratio.floor > max_manager_engineer_coverage
 
             max_manager_engineer_coverage = manager_engineer_ratio.floor
