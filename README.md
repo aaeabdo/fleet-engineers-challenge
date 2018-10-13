@@ -56,6 +56,3 @@ Using docker compose:
  ```
  $ docker-compose run fleet-management rspec
  ```
-
-## Missing 
-[ ] Feature specs 
