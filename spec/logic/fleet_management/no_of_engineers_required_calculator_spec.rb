@@ -91,7 +91,7 @@ RSpec.describe Logic::FleetManagement::NoOfEngineersRequiredCalculator do
     end
 
     context 'with no scooter' do
-      let(:scooters_per_district)   { [0,0] }
+      let(:scooters_per_district)   { [0, 0] }
       let(:fleet_manager_capacity)  { 10 }
       let(:fleet_engineer_capacity) { 5 }
 
