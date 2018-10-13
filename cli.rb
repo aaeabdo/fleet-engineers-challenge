@@ -14,7 +14,7 @@ class CLI
     def define_options(parser)
       parser.banner = 'Usage: cli.rb [options]'
       parser.separator ''
-      parser.separator 'Calculates the no of required fleet engineer to help manager in a city'
+      parser.separator 'Calculates the no of required fleet engineers to help fleet manager in a city'
       parser.separator ''
       parser.separator 'required arguments:'
 
