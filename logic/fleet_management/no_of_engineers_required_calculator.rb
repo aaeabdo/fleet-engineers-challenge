@@ -47,17 +47,17 @@ module Logic
           max_no_engineers_required += no_engineers_required.ceil
         end
 
-        return 0 if no_engineers_required == 0
+        return 0 if max_no_engineers_required == 0
 
-        no_engineers_required = max_no_engineers_required - max_manager_engineer_coverage
+        total_no_engineers_required = max_no_engineers_required - max_manager_engineer_coverage
 
-        no_engineers_required
+        total_no_engineers_required
       end
 
       private
 
-      attr_reader :scooters_per_district_validator, :fleet_manager_capacity,
-        :fleet_engineer_capacity
+      attr_reader :scooters_per_district_validator, :fleet_manager_capacity_validator,
+        :fleet_engineer_capacity_validator
 
       def validate_arguments!(
         scooters_per_district,
