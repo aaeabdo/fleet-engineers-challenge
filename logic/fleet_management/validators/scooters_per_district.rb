@@ -4,12 +4,26 @@ module Logic
   module FleetManagement
     module Validators
       class InvalidScootersPerDistrictError < InvalidArgumentError; end
+
+      #
+      # Class ScootersPerDistrict validates scooters per district
+      #
       class ScootersPerDistrict
+        # could moved out to configuration
         MIN_NO_OF_DISTRICTS = 1
         MAX_NO_OF_DISTRICTS = 100
         MIN_NO_OF_SCOOTERS  = 0
         MAX_NO_OF_SCOOTERS  = 1000
 
+        #
+        # Validates scooters_per_district
+        #
+        # @param [Array] scooters_per_district array of scooter per district
+        #
+        # @raise InvalidScootersPerDistrictError
+        #
+        # @return [Array] scooters_per_district
+        #
         def self.call(scooters_per_district)
           if !scooters_per_district.is_a? Array
             raise InvalidScootersPerDistrictError, "Scooters per district must be an array of"\
@@ -32,7 +46,7 @@ module Logic
              "integer between #{MIN_NO_OF_SCOOTERS} and #{MAX_NO_OF_SCOOTERS}."
           end
 
-          return scooters_per_district
+          scooters_per_district
         end
       end
     end

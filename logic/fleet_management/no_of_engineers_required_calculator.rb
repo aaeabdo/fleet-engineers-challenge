@@ -2,6 +2,10 @@
 
 module Logic
   module FleetManagement
+    #
+    # Class NoOfEngineersRequiredCalculator calculates the minimum no of engineers required to support a manager
+    #
+    #
     class NoOfEngineersRequiredCalculator
       def initialize(
         scooters_per_district_validator,
@@ -13,6 +17,15 @@ module Logic
         @fleet_engineer_capacity_validator = fleet_engineer_capacity_validator
       end
 
+      #
+      # Calculates the minimum no of engineers required to support a manager per city
+      #
+      # @param [Array] scooters_per_district
+      # @param [Integer] fleet_manager_capacity no of scooters a manager can maintain
+      # @param [Integer] fleet_engineer_capacity no of scooters an engineer can maintain
+      #
+      # @return [Integer] total_no_engineers_required
+      #
       def call(scooters_per_district, fleet_manager_capacity, fleet_engineer_capacity)
         validate_arguments!(scooters_per_district, fleet_manager_capacity, fleet_engineer_capacity)
 
@@ -27,19 +40,19 @@ module Logic
           no_engineers_required_remainder = no_engineers_required.modulo(1)
 
           if scooters <= fleet_manager_capacity &&
-            no_engineers_required.ceil > max_manager_engineer_coverage
+             no_engineers_required.ceil > max_manager_engineer_coverage
 
             max_manager_engineer_coverage = no_engineers_required.ceil
           elsif scooters > fleet_manager_capacity &&
-            no_engineers_required_remainder > 0 &&
-            no_engineers_required_remainder <= manager_engineer_ratio_remainder &&
-            manager_engineer_ratio.ceil > max_manager_engineer_coverage
+                no_engineers_required_remainder > 0 &&
+                no_engineers_required_remainder <= manager_engineer_ratio_remainder &&
+                manager_engineer_ratio.ceil > max_manager_engineer_coverage
 
             max_manager_engineer_coverage = manager_engineer_ratio.ceil
           elsif scooters > fleet_manager_capacity &&
-            (no_engineers_required_remainder == 0 ||
-              no_engineers_required_remainder > manager_engineer_ratio_remainder) &&
-            manager_engineer_ratio.floor > max_manager_engineer_coverage
+                (no_engineers_required_remainder == 0 ||
+                 no_engineers_required_remainder > manager_engineer_ratio_remainder) &&
+                manager_engineer_ratio.floor > max_manager_engineer_coverage
 
             max_manager_engineer_coverage = manager_engineer_ratio.floor
           end
