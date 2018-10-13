@@ -141,5 +141,21 @@ RSpec.describe Logic::FleetManagement::NoOfEngineersRequiredCalculator do
         end
       end
     end
+
+    context 'test case 1' do
+      let(:scooters_per_district)   { [15, 10] }
+      let(:fleet_manager_capacity)  { 12 }
+      let(:fleet_engineer_capacity) { 5 }
+
+      it { is_expected.to eq 3 }
+    end
+
+    context 'test case 2' do
+      let(:scooters_per_district)   { [11, 15, 13] }
+      let(:fleet_manager_capacity)  { 9 }
+      let(:fleet_engineer_capacity) { 5 }
+
+      it { is_expected.to eq 7 }
+    end
   end
 end
