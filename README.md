@@ -5,7 +5,8 @@ Simple user-facing command line interface (CLI) for calculating the minimum numb
 ## Prerequisites
 
 **Docker**
-**docker-compose**
+
+**Docker-compose**
 
 ## Run the CLI
 Using docker compose:
@@ -55,3 +56,6 @@ Using docker compose:
  ```
  $ docker-compose run fleet-management rspec
  ```
+
+## Missing 
+[ ] Feature specs 
